@@ -6,7 +6,7 @@
                     :header-cell-style="{background:'#eef1f6',color:'#606266'}" :row-style="{height: '65px'}">
                 <el-table-column
                         prop="username"
-                        label="未审核会员">
+                        label="会员列表">
                 </el-table-column>
                 <el-table-column
                         prop="realname"
