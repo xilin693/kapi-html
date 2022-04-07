@@ -1,0 +1,58 @@
+{
+  "name": "kapi-html",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "dev-build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.13.2",
+    "file-saver": "^2.0.5",
+    "md5": "^2.3.0",
+    "script-loader": "^0.7.2",
+    "vue": "^2.6.11",
+    "vue-axios": "^3.0.1",
+    "vue-copy-to-clipboard": "^1.0.3",
+    "vue-json-pretty": "^1.7.1",
+    "vue-organization-chart": "^1.1.6",
+    "vue-router": "^3.4.6",
+    "vue-tinymce-editor": "^1.6.2",
+    "vuedraggable": "^2.24.3",
+    "xlsx": "^0.17.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.3",
+    "script-ext-html-webpack-plugin": "^2.1.5",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "par,ser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
