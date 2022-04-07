@@ -8,3 +8,8 @@ yarn install
 yarn run serve //  本地调试
 yarn run dev-build // 远程部署
 ```
+* 默认用户名密码
+```
+用户名: admin
+密码: 123456a
+```
