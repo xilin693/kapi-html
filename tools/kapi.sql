@@ -1,3 +1,19 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : rm-7xvmoa0d1z6rq5i9b5o.mysql.rds.aliyuncs.com
+ Source Server Type    : MySQL
+ Source Server Version : 80018
+ Source Host           : rm-7xvmoa0d1z6rq5i9b5o.mysql.rds.aliyuncs.com:3306
+ Source Schema         : kapi
+
+ Target Server Type    : MySQL
+ Target Server Version : 80018
+ File Encoding         : 65001
+
+ Date: 08/04/2022 11:32:29
+*/
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -155,25 +171,107 @@ COMMIT;
 DROP TABLE IF EXISTS `sys_permission`;
 CREATE TABLE `sys_permission` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '菜单id',
-  `pid` int(11) NOT NULL DEFAULT '0' COMMENT '父级菜单id',
   `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '菜单名称',
-  `sort` smallint(6) NOT NULL DEFAULT '0' COMMENT '菜单排序',
-  `segment` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT 'url第一段',
   `url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '接口api地址',
-  `method` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '接口请求方式 get,post,put,delete',
-  `redirect` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '前端路由',
-  `component` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '前端路由的component',
-  `icon` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '图标',
-  `menu` tinyint(4) NOT NULL DEFAULT '1' COMMENT '是否菜单 0、否 1、是',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态,0、未启用 1正常',
-  PRIMARY KEY (`id`),
-  KEY `method` (`method`)
-) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='后台菜单表';
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='后台菜单表';
 
 -- ----------------------------
 -- Records of sys_permission
 -- ----------------------------
 BEGIN;
+INSERT INTO `sys_permission` VALUES (1, '', 'general/file', 1);
+INSERT INTO `sys_permission` VALUES (2, '', 'general/rest', 1);
+INSERT INTO `sys_permission` VALUES (3, '', 'general/interface', 1);
+INSERT INTO `sys_permission` VALUES (4, '', 'general/delFile', 1);
+INSERT INTO `sys_permission` VALUES (5, '', 'project/get?private=1', 1);
+INSERT INTO `sys_permission` VALUES (6, '', 'general/index', 1);
+INSERT INTO `sys_permission` VALUES (7, '', 'general/userInfo', 1);
+INSERT INTO `sys_permission` VALUES (8, '', 'captcha/index', 1);
+INSERT INTO `sys_permission` VALUES (9, '', 'login/index', 1);
+INSERT INTO `sys_permission` VALUES (10, '', 'login/logout', 1);
+INSERT INTO `sys_permission` VALUES (11, '', 'account/get', 1);
+INSERT INTO `sys_permission` VALUES (12, '', 'account/add', 1);
+INSERT INTO `sys_permission` VALUES (13, '', 'account/edit', 1);
+INSERT INTO `sys_permission` VALUES (14, '', 'account/audit', 1);
+INSERT INTO `sys_permission` VALUES (15, '', 'account/detail', 1);
+INSERT INTO `sys_permission` VALUES (16, '', 'account/get/name', 1);
+INSERT INTO `sys_permission` VALUES (17, '', 'account/get/audit', 1);
+INSERT INTO `sys_permission` VALUES (18, '', 'account/delete', 1);
+INSERT INTO `sys_permission` VALUES (19, '', 'account/alterPassword', 1);
+INSERT INTO `sys_permission` VALUES (20, '', 'account/resetPassword', 1);
+INSERT INTO `sys_permission` VALUES (21, '', 'menu/get', 1);
+INSERT INTO `sys_permission` VALUES (22, '', 'menu/add', 1);
+INSERT INTO `sys_permission` VALUES (23, '', 'menu/detail', 1);
+INSERT INTO `sys_permission` VALUES (24, '', 'menu/edit', 1);
+INSERT INTO `sys_permission` VALUES (25, '', 'kpi/add', 1);
+INSERT INTO `sys_permission` VALUES (26, '', 'kpi/detail', 1);
+INSERT INTO `sys_permission` VALUES (27, '', 'kpi/get', 1);
+INSERT INTO `sys_permission` VALUES (28, '', 'kpi/me', 1);
+INSERT INTO `sys_permission` VALUES (29, '', 'kpi/excel', 1);
+INSERT INTO `sys_permission` VALUES (30, '', 'kpi/edit', 1);
+INSERT INTO `sys_permission` VALUES (31, '', 'kpi/all', 1);
+INSERT INTO `sys_permission` VALUES (32, '', 'member/add', 1);
+INSERT INTO `sys_permission` VALUES (33, '', 'member/delete', 1);
+INSERT INTO `sys_permission` VALUES (34, '', 'member/get', 1);
+INSERT INTO `sys_permission` VALUES (35, '', 'member/edit', 1);
+INSERT INTO `sys_permission` VALUES (36, '', 'member/project', 1);
+INSERT INTO `sys_permission` VALUES (37, '', 'role/get', 1);
+INSERT INTO `sys_permission` VALUES (38, '', 'role/add', 1);
+INSERT INTO `sys_permission` VALUES (39, '', 'role/edit', 1);
+INSERT INTO `sys_permission` VALUES (40, '', 'role/delete', 1);
+INSERT INTO `sys_permission` VALUES (41, '', 'role/detail', 1);
+INSERT INTO `sys_permission` VALUES (42, '', 'role/menu', 1);
+INSERT INTO `sys_permission` VALUES (43, '', 'tag/get', 1);
+INSERT INTO `sys_permission` VALUES (44, '', 'tag/add', 1);
+INSERT INTO `sys_permission` VALUES (45, '', 'tag/edit', 1);
+INSERT INTO `sys_permission` VALUES (46, '', 'tag/delete', 1);
+INSERT INTO `sys_permission` VALUES (47, '', 'dict/add', 1);
+INSERT INTO `sys_permission` VALUES (48, '', 'dict/edit', 1);
+INSERT INTO `sys_permission` VALUES (49, '', 'dict/delete', 1);
+INSERT INTO `sys_permission` VALUES (50, '', 'dict/get', 1);
+INSERT INTO `sys_permission` VALUES (51, '', 'item/add', 1);
+INSERT INTO `sys_permission` VALUES (52, '', 'item/edit', 1);
+INSERT INTO `sys_permission` VALUES (53, '', 'item/delete', 1);
+INSERT INTO `sys_permission` VALUES (54, '', 'dict/getTag', 1);
+INSERT INTO `sys_permission` VALUES (55, '', 'project/get', 1);
+INSERT INTO `sys_permission` VALUES (56, '', 'project/invite', 1);
+INSERT INTO `sys_permission` VALUES (57, '', 'api/account', 1);
+INSERT INTO `sys_permission` VALUES (58, '', 'project/invite', 1);
+INSERT INTO `sys_permission` VALUES (59, '', 'project/group', 1);
+INSERT INTO `sys_permission` VALUES (60, '', 'project/group/all', 1);
+INSERT INTO `sys_permission` VALUES (61, '', 'project/organize', 1);
+INSERT INTO `sys_permission` VALUES (62, '', 'project/add', 1);
+INSERT INTO `sys_permission` VALUES (63, '', 'project/importJson', 1);
+INSERT INTO `sys_permission` VALUES (64, '', 'project/export', 1);
+INSERT INTO `sys_permission` VALUES (65, '', 'project/edit', 1);
+INSERT INTO `sys_permission` VALUES (66, '', 'project/progress', 1);
+INSERT INTO `sys_permission` VALUES (67, '', 'project/delete', 1);
+INSERT INTO `sys_permission` VALUES (68, '', 'project/detail', 1);
+INSERT INTO `sys_permission` VALUES (69, '', 'api/search', 1);
+INSERT INTO `sys_permission` VALUES (70, '', 'api/get', 1);
+INSERT INTO `sys_permission` VALUES (71, '', 'api/detail', 1);
+INSERT INTO `sys_permission` VALUES (72, '', 'api/project', 1);
+INSERT INTO `sys_permission` VALUES (73, '', 'api/relative', 1);
+INSERT INTO `sys_permission` VALUES (74, '', 'api/copyRelative', 1);
+INSERT INTO `sys_permission` VALUES (75, '', 'api/sort', 1);
+INSERT INTO `sys_permission` VALUES (76, '', 'api/category', 1);
+INSERT INTO `sys_permission` VALUES (77, '', 'api/add', 1);
+INSERT INTO `sys_permission` VALUES (78, '', 'api/saveCategory', 1);
+INSERT INTO `sys_permission` VALUES (79, '', 'api/copy', 1);
+INSERT INTO `sys_permission` VALUES (80, '', 'api/saveDetail', 1);
+INSERT INTO `sys_permission` VALUES (81, '', 'api/json', 1);
+INSERT INTO `sys_permission` VALUES (82, '', 'api/setField', 1);
+INSERT INTO `sys_permission` VALUES (83, '', 'api/edit', 1);
+INSERT INTO `sys_permission` VALUES (84, '', 'api/run', 1);
+INSERT INTO `sys_permission` VALUES (85, '', 'api/delete', 1);
+INSERT INTO `sys_permission` VALUES (86, '', 'env/get', 1);
+INSERT INTO `sys_permission` VALUES (87, '', 'env/project', 1);
+INSERT INTO `sys_permission` VALUES (88, '', 'env/add', 1);
+INSERT INTO `sys_permission` VALUES (89, '', 'env/edit', 1);
+INSERT INTO `sys_permission` VALUES (90, '', 'env/delete', 1);
+INSERT INTO `sys_permission` VALUES (91, '', 'env/detail', 1);
 COMMIT;
 
 -- ----------------------------
@@ -194,6 +292,7 @@ CREATE TABLE `sys_role` (
 -- Records of sys_role
 -- ----------------------------
 BEGIN;
+INSERT INTO `sys_role` VALUES (1, '普通用户', '[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 19, 20, 25, 26, 27, 28, 32, 33, 34, 35, 36, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 61, 62, 63, 64, 65, 66, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91]', 1, 0, 0);
 COMMIT;
 
 -- ----------------------------
