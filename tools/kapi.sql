@@ -66,7 +66,7 @@ CREATE TABLE `project` (
 -- Records of project
 -- ----------------------------
 BEGIN;
-INSERT INTO `project` VALUES (1, 0, '商城前台', 1, '', 0, '#3d546f', 13, 0, 0, '1.0', 0);
+INSERT INTO `project` (`id`, `pid`, `name`, `account_id`, `icon`, `sort`, `icon_color`, `leader_id`, `progress`, `status`, `version`, `post_use_json`) VALUES (7, 0, '个人空间', 0, '', 1, '', 0, 0, 0, '1.0', 0);
 COMMIT;
 
 -- ----------------------------
