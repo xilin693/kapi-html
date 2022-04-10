@@ -62,6 +62,7 @@
                         let params = {...this.form};
                         saveProject(params).then((rs) => {
                             this.$message.success('添加项目成功');
+                            location.reload();
                         })
                     }
                 })

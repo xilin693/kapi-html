@@ -52,7 +52,7 @@
                 rules: {
                     name: [{
                         required: true,
-                        message: '环境名称不能为空',
+                        message: '项目组名称不能为空',
                         trigger: 'blur'
                     }]
                 },

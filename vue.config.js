@@ -5,6 +5,7 @@ function resolve(dir) {
     return path.join(__dirname, dir)
 }
 
+const targetUrl = 'http://kapi.local'
 const name = defaultSettings.title || 'kapi' // page title
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
@@ -40,7 +41,7 @@ module.exports = {
             [process.env.VUE_APP_BASE_API]: {
                 /* 目标代理服务器地址 */
                 // target: 'http://gxyl.aibtc.top/',
-                target: 'http://kapi.local',
+                target: targetUrl,
                 /* 允许跨域 */
                 changeOrigin: true,
                 pathRewrite: {
