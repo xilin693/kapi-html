@@ -1,6 +1,6 @@
 # kapi-html
  api接口调试工具,类似yapi,用户体验更佳,此为kapi前端代码,运行需要kpi后端支持.可以在github.com/xilin693找到kapi
-后端项目地址
+后端项目地址,此为个人第一个vue项目,代码肯定有优化空间,后期会优化代码
 ## 配置修改
 ```
     1. 开发环境调试vue.config.js中targetUrl为后端api地址,默认为kapi.local,请根据实际域名配置
