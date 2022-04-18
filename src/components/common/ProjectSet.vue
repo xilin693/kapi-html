@@ -17,7 +17,7 @@
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" icon="el-icon-document-add" native-type="submit"
-                               @click.native.prevent="handleSave('form')" :disabled="disabled">更新
+                               @click.native.prevent="handleSave('form')" :disabled="disabled">{{tag}}
                     </el-button>
                 </el-form-item>
             </el-form>
@@ -37,6 +37,7 @@
                     pid: '',
                     post_use_json: 0
                 },
+                tag: '添加',
                 projects: {},
                 rules: {
                     name: [{
@@ -58,22 +59,27 @@
         },
         methods: {
             init() {
-                userinfo().then((rs) => {
+                if (this.$route.params.id > 0) {
+                  this.tag = '更新'
+                  userinfo().then((rs) => {
                     this.userInfo = rs.data;
                     getCurrentMember({'account_id': this.userInfo.id, 'project_id': this.$route.params.id}).then((rs2) => {
-                        this.member = rs2.data;
-                        if (this.member.group !=1 && this.userInfo.id !=1) {
-                            this.disabled = "disabled";
-                        }
+                      this.member = rs2.data;
+                      if (this.member.group !=1 && this.userInfo.id !=1) {
+                        this.disabled = "disabled";
+                      }
                     })
-                })
-                getAllGroup().then((rs) => {
-                    this.projects = rs.data
-                })
-                getCurrentProject(this.$route.params.id).then((rs) => {
+                  })
+
+                  getCurrentProject(this.$route.params.id).then((rs) => {
                     this.form.name = rs.data.name;
                     this.form.pid = rs.data.pid;
                     this.form.post_use_json = rs.data.post_use_json ? true : false;
+                  })
+                }
+
+                getAllGroup().then((rs) => {
+                    this.projects = rs.data
                 })
             },
             handleSave(formName) {
@@ -82,10 +88,18 @@
                         let params = {...this.form};
                         params.id = this.$route.params.id;
                         params.post_use_json = (params.post_use_json == true) ? 1: 0;
-                        updateProjectGroup(params).then((rs) => {
+                        if (params.id > 0) {
+                          updateProjectGroup(params).then((rs) => {
                             parent.document.getElementById('pn').innerHTML = '- ' + this.form.name;
                             this.$message.success('更新项目成功');
-                        })
+                          })
+                        } else {
+                          saveProject(params).then((rs) => {
+                            this.$message.success('添加项目成功');
+                            location.reload();
+                          })
+                        }
+
                     }
                 })
             }
